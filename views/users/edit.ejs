@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Edit Page</title>
+</head>
+<body>
+	<header>
+		<h1>User Edit Page</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/users">Users Index</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<form action="/users/<%=user.id%>?_method=PUT" method="POST">
+			Username: <input type="text" name="username" value="<%=user.username%>"><br>
+			Password: <input type="text" name="password"><br>
+			<input type="submit" value="Submit Edits">
+		</form>
+	</main>
+
+</body>
+</html>
