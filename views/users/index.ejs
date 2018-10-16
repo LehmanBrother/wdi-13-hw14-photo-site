@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Index</title>
+</head>
+<body>
+	<header>
+		<h1>User Index Page</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/users/new">New User</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<ul>
+			<% for (let i = 0; i < users.length; i++) { -%>
+				<li><a href="/users/<%=users[i].id%>"><%=users[i].name%></a></li>
+			<% } -%>
+		</ul>
+	</main>
+
+</body>
+</html>
