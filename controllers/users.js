@@ -49,17 +49,17 @@ router.delete('/:index', (req, res) => {
 
 //edit route
 router.get('/:index/edit', (req, res) => {
-	Artist.findById(req.params.index, (err, editedArtist) => {
-		res.render('artists/edit.ejs', {
-			artist: editedArtist
+	User.findById(req.params.index, (err, editedUser) => {
+		res.render('users/edit.ejs', {
+			user: editedUser
 		});
 	})
 })
 
 //put route
 router.put('/:index', (req, res) => {
-	Artist.findByIdAndUpdate(req.params.index, req.body, (err, updatedArtist) => {
-		res.redirect('/artists');
+	User.findByIdAndUpdate(req.params.index, req.body, (err, updatedUser) => {
+		res.redirect('/users');
 	})
 })
 
