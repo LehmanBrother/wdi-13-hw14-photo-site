@@ -38,11 +38,11 @@ router.post('/', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-	Artist.findOneAndDelete(req.params.index, (err, deletedArtist) => {
+	User.findOneAndDelete(req.params.index, (err, deletedUser) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.redirect('/artists');
+			res.redirect('/users');
 		}
 	})
 })
