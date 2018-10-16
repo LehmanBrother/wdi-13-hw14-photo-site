@@ -27,11 +27,11 @@ router.get('/:index', (req, res) => {
 
 //post route
 router.post('/', (req, res) => {
-	Artist.create(req.body, (err, createdArtist) => {
+	User.create(req.body, (err, createdUser) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.redirect('/artists');
+			res.redirect('/users');
 		}
 	})
 })

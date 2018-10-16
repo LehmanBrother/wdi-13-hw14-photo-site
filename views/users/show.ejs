@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%=user.name%></title>
+</head>
+<body>
+	<header>
+		<h1>User Show Page</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/users">Users Index</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<a href="/users/<%=user.id%>/edit">Edit User</a>
+		<ul>
+			<li>Username: <%=user.name%></li>
+			<li>Password: lol jk this wouldn't be on here</li>
+		</ul>
+		<form action="/users/<%=user.id%>?_method=DELETE" method="POST">
+			<input type="submit" value="Delete User">
+		</form>
+		<img src="<%=user.img%>">
+	</main>
+
+</body>
+</html>
