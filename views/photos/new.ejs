@@ -15,7 +15,12 @@
 	</header>
 	<main>
 		<form action="/photos" method="POST">
-			Username: <input type="text" name="username"><br>
+			<select type="text" name="username">
+				<option value="">Choose User</option>
+					<% for (let i = 0; i < users.length; i++) { -%>
+					<option value="<%=users[i].username%>"><%=users[i].username%></option>
+				<% } -%>
+			</select><br>
 			Image: <input type="text" name="img"><br>
 			Caption: <input type="text" name="caption"><br>
 			<button type="submit">Create Photo</button>

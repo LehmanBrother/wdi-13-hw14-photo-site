@@ -32,11 +32,15 @@ router.get('/:index', (req, res) => {
 
 //post route
 router.post('/', (req, res) => {
-	User.create(req.body, (err, createdUser) => {
+	Photo.create(req.body, (err, newPhoto) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.redirect('/users');
+			User.findOne({username: req.body.username}, (err, foundUser) => {
+				foundUser.photos.push(newPhoto);
+				foundUser.save();
+			})
+			res.redirect('/photos');
 		}
 	})
 })
