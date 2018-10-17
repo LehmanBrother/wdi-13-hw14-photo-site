@@ -16,6 +16,7 @@
 	<main>
 		<ul>
 			<% for (let i = 0; i < photos.length; i++) { -%>
+				<a href="/photos/<%=photos[i].id%>">Photo <%=i%></a><br>
 				<img src="<%=photos[i].img%>"><br>
 			<% } -%>
 		</ul>

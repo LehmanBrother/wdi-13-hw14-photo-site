@@ -23,10 +23,17 @@ router.get('/new', (req, res) => {
 
 //show route
 router.get('/:index', (req, res) => {
-	User.findById(req.params.index, (err, foundUser) => {
-		res.render('photos/show.ejs', {
-			user: foundUser
-		})
+	Photo.findById(req.params.index, (err, showPhoto) => {
+		if(err) {
+			console.log(err);
+		} else {
+			User.findOne({username: showPhoto.username}, (err, foundUser) => {
+				res.render('photos/show.ejs', {
+					user: foundUser,
+					photo: showPhoto
+				})
+			})
+		}
 	})
 })
 

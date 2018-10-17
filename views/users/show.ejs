@@ -19,6 +19,11 @@
 			<li>Username: <%=user.name%></li>
 			<li>Password: lol jk this wouldn't be on here</li>
 		</ul>
+		<div>
+			<% for (let i = 0; i < photos.length; i++) { -%>
+				<img src="<%=photos[i].img%>"><br>
+			<% } -%>
+		</div>
 		<form action="/users/<%=user.id%>?_method=DELETE" method="POST">
 			<input type="submit" value="Delete User">
 		</form>

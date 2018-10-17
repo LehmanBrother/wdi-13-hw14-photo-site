@@ -20,8 +20,11 @@ router.get('/new', (req, res) => {
 //show route
 router.get('/:index', (req, res) => {
 	User.findById(req.params.index, (err, foundUser) => {
-		res.render('users/show.ejs', {
-			user: foundUser
+		Photo.find({username: foundUser.username}, (err, foundPhotos) => {
+			res.render('users/show.ejs', {
+				user: foundUser,
+				photos: foundPhotos
+			})
 		})
 	})
 })
