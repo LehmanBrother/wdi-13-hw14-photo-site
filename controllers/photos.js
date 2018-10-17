@@ -69,10 +69,17 @@ router.delete('/:index', (req, res) => {
 
 //edit route
 router.get('/:index/edit', (req, res) => {
-	User.findById(req.params.index, (err, editedUser) => {
-		res.render('photos/edit.ejs', {
-			user: editedUser
-		});
+	Photo.findById(req.params.index, (err, editedPhoto) => {
+		if(err) {
+			console.log(err);
+		} else {
+			User.find({}, (err, allUsers) => {
+				res.render('photos/edit.ejs', {
+					photo: editedPhoto,
+					users: allUsers
+				})
+			})
+		}
 	})
 })
 
