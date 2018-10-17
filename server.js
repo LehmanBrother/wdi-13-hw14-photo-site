@@ -11,7 +11,7 @@ const photosController = require('./controllers/photos');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use('/users', usersController);
-app.use('/users', photosController);
+app.use('/photos', photosController);
 
 app.get('/', (req, res) => {
 	res.render('index.ejs');

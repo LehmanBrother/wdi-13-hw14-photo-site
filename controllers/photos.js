@@ -5,9 +5,9 @@ const Photo = require('../models/photos');
 
 //index route
 router.get('/', (req, res) => {
-	User.find({}, (err, allUsers) => {
-		res.render('users/index.ejs', {
-			users: allUsers
+	Photo.find({}, (err, allPhotos) => {
+		res.render('photos/index.ejs', {
+			photos: allPhotos
 		});
 	})
 })

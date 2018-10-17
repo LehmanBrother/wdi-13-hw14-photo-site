@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Index</title>
+</head>
+<body>
+	<header>
+		<h1>Photo Index Page</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/photos/new">New Photo</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<ul>
+			<% for (let i = 0; i < photos.length; i++) { -%>
+				<img src="/photos/<%=photos[i].img%>"><br>
+			<% } -%>
+		</ul>
+	</main>
+
+</body>
+</html>
