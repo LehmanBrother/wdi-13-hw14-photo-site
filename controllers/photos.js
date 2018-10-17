@@ -85,8 +85,13 @@ router.get('/:index/edit', (req, res) => {
 
 //put route
 router.put('/:index', (req, res) => {
-	User.findByIdAndUpdate(req.params.index, req.body, (err, updatedUser) => {
-		res.redirect('/users');
+	Photo.findByIdAndUpdate(req.params.index, req.body, (err, updatePhoto) => {
+		User.findOne({username: updatePhoto.username}, (err, updateUser) => {
+			let photoToUpdate = updateUser.photos.id(updatePhoto.id);
+			photoToUpdate = req.body;
+			updateUser.save();
+			res.redirect('/photos');
+		})
 	})
 })
 

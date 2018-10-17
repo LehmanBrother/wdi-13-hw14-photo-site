@@ -46,7 +46,9 @@ router.delete('/:index', (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.redirect('/users');
+			Photo.deleteMany({username: deletedUser.username}, (err, deletedPhotos) => {
+				res.redirect('/users');
+			})
 		}
 	})
 })
