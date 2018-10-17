@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-	User.findOneAndDelete(req.params.index, (err, deletedUser) => {
+	User.findByIdAndDelete(req.params.index, (err, deletedUser) => {
 		if(err) {
 			console.log(err);
 		} else {

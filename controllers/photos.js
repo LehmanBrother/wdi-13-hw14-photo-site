@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-	Photo.findOneAndDelete(req.params.index, (err, deletePhoto) => {
+	Photo.findByIdAndDelete(req.params.index, (err, deletePhoto) => {
 		if(err) {
 			console.log(err);
 		} else {
