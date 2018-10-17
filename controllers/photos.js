@@ -54,11 +54,15 @@ router.post('/', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-	User.findOneAndDelete(req.params.index, (err, deletedUser) => {
+	Photo.findOneAndDelete(req.params.index, (err, deletePhoto) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.redirect('/users');
+			User.findOne({username: deletePhoto.username}, (err, deleteUser) => {
+				deleteUser.photos.id(deletePhoto.id).remove();
+				deleteUser.save();
+				res.redirect('/photos')
+			})
 		}
 	})
 })
