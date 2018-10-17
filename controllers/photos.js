@@ -14,13 +14,17 @@ router.get('/', (req, res) => {
 
 //new route
 router.get('/new', (req, res) => {
-	res.render('users/new.ejs');
+	User.find({}, (err, allUsers) => {
+		res.render('photos/new.ejs', {
+			users: allUsers
+		});
+	})
 })
 
 //show route
 router.get('/:index', (req, res) => {
 	User.findById(req.params.index, (err, foundUser) => {
-		res.render('users/show.ejs', {
+		res.render('photos/show.ejs', {
 			user: foundUser
 		})
 	})
@@ -51,7 +55,7 @@ router.delete('/:index', (req, res) => {
 //edit route
 router.get('/:index/edit', (req, res) => {
 	User.findById(req.params.index, (err, editedUser) => {
-		res.render('users/edit.ejs', {
+		res.render('photos/edit.ejs', {
 			user: editedUser
 		});
 	})
